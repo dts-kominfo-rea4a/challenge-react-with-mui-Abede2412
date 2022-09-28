@@ -25,9 +25,17 @@ const App = () => {
 
   return (
     <div className="App">
-      <Header />
-      <Contact data = {contacts}/>
+      <Header  />
+      {
+        contacts.map(data => (
+
+          <Contact data = {data} />
+
+        ))
+      }
+        
       <ContactForm fnaddContact = {addContact}/>
+        
 
     </div>
   );

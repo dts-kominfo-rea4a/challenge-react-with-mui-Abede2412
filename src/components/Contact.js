@@ -4,7 +4,7 @@
 import React from 'react';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-//import Divider from '@mui/material/Divider';
+import Divider from '@mui/material/Divider';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
@@ -12,30 +12,26 @@ import Typography from '@mui/material/Typography';
 
 // Kalian bisa membuat CSS sendiri di src/components/Contact.css
 // atau langsung tambahkan dengan sx={{}}
-const Contact = ({ data }) => {
+const Contact = ({data}) => {
     // Contact berisi foto, nama, telepon, dan email
     return (
-    <>
-        <List sx={{ width: '100%', maxWidth: 360 }}>
-            {data.map((deta) => {
-                return (
-                    <ListItem alignItems = 'flex-start'>
+    <>              <ListItem alignItems = 'flex-start' key = {data.email}>
                         <ListItemAvatar>
-                            <Avatar src={deta.photo}/>
+                            <Avatar src={data.photo}/>
                         </ListItemAvatar>
                         <ListItemText
-                            primary={deta.name}
+                            primary={data.name}
                             secondary={
                                 <>
-                                <Typography>{deta.phone}</Typography>
-                                <Typography>{deta.email}</Typography>
+                                <Typography>{data.phone}</Typography>
+                                <Typography>{data.email}</Typography>
                                 </>
                             }
                         />
                     </ListItem> 
-                );
-            })}
-        </List>
+                    <Divider variant="inset" />
+             
+        
     </>
     );
 };
